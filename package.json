@@ -15,6 +15,7 @@
     }
   },
   "dependencies": {
+    "@radix-ui/themes": "^2.0.0",
     "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.5",
     "prettier": "^3.0.3",

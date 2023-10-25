@@ -5,7 +5,7 @@ import Tavern from '../pages/Tavern';
 
 const AppRouter = () => {
   return (
-    <div>
+    <div tw="p-0">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
