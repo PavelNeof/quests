@@ -3,8 +3,8 @@ import {useNavigate} from "react-router-dom";
 import {observer} from "mobx-react-lite";
 import store from "../store/store";
 import 'twin.macro'
-import {Button} from "@radix-ui/themes";
-import {PopoverComponent, Background} from "../components";
+
+import {PopoverComponent, Background, ButtonComponent, ModalComponent} from "../components";
 import Header from "../components/Header";
 
 const Home = observer(() => {
@@ -26,7 +26,12 @@ const Home = observer(() => {
       <div>{store.hearts}</div>
       <button onClick={store.startGame}>start Game</button>
       <button onClick={deleteHearts}>delete hearts</button>
-      <Button onClick={navigateToTavern}>go to tavern</Button>
+      <ModalComponent trigger={<div>modal trigger</div>}>
+        <div>asdasdasd</div>
+      </ModalComponent>
+      <div tw="absolute top-[430px] left-[500px] text-white"><ButtonComponent onClick={navigateToTavern}>go to tavern!</ButtonComponent></div>
+
+      <span>123</span>
 
       <PopoverComponent trigger={<div>trigger</div>}>
         <div>1</div>
