@@ -14,4 +14,4 @@ const ButtonComponent = React.forwardRef(({onClick, children,...rest}:ButtonComp
 export default ButtonComponent;
 
 const ButtonWrapper = tw.button`flex justify-center items-center rounded border-2 border-solid border-transparent cursor-pointer hover:(bg-red-200)`;
-const Label = tw.span`text-sm font-medium`;
+const Label = tw.span`text-sm font-medium text-white bg-black/20 p-[1px] rounded`;

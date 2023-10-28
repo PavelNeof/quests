@@ -1,7 +1,6 @@
 import 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Home from '../pages/Home';
-import Tavern from '../pages/Tavern';
+import { Painting, Library, Tavern, Home, Sculpture } from '../pages';
 
 const AppRouter = () => {
   return (
@@ -10,6 +9,9 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tavern" element={<Tavern />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/painting" element={<Painting />} />
+          <Route path="/sculpture" element={<Sculpture />} />
         </Routes>
       </BrowserRouter>
     </div>

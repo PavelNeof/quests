@@ -30,6 +30,18 @@ export class Store {
       alert('Game over!');
     }
   }
+
+  addHearts() {
+    const jsonHearts = localStorage.getItem(`hearts`);
+    const hearts = jsonHearts ? JSON.parse(jsonHearts) : null;
+    if (hearts < 3) {
+      localStorage.setItem(`hearts`, JSON.stringify(hearts + 1));
+      this.hearts = this.hearts + 1;
+    }
+    if (hearts >= 3) {
+      alert('максимум сердец');
+    }
+  }
 }
 
 export default new Store();
