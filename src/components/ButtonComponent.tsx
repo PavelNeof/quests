@@ -5,7 +5,7 @@ type ButtonComponentType = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: React.ReactNode;
 }
-const ButtonComponent = React.forwardRef(({onClick, children,...rest}:ButtonComponentType, ref) => {
+const ButtonComponent = React.forwardRef(({onClick, children, ...rest}:ButtonComponentType, ref) => {
   return <ButtonWrapper onClick={onClick} ref={ref as any} {...rest}>
     {children && <Label>{children}</Label>}
   </ButtonWrapper>;
@@ -13,5 +13,5 @@ const ButtonComponent = React.forwardRef(({onClick, children,...rest}:ButtonComp
 
 export default ButtonComponent;
 
-const ButtonWrapper = tw.button`flex justify-center items-center rounded border-2 border-solid border-transparent cursor-pointer hover:(bg-red-200)`;
-const Label = tw.span`text-sm font-medium text-white bg-black/20 p-[1px] rounded`;
+const ButtonWrapper = tw.button`flex justify-center items-center rounded border-2 border-solid border-transparent cursor-pointer h-fit hover:(bg-red-200)`;
+const Label = tw.span`text-sm flex justify-center items-center font-medium text-white bg-black/20 rounded`;

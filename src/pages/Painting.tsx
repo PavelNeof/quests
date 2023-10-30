@@ -15,7 +15,7 @@ const Painting = () => {
           <div tw="mt-32">
             <ButtonComponent onClick={() => navigate('/library')}>Вернуться назад</ButtonComponent>
           </div>
-          <TooltipComponent content="Хозяин дома, барон фон Пидр на отдыхе" delayDuration="200">
+          <TooltipComponent content="Хозяин дома, барон фон Пидр на отдыхе. Венеция. 1912г." delayDuration="200">
             <div tw="absolute left-[415px] top-[410px]">
               <div tw="ml-4 content-[''] h-10 w-10"></div>
               <div tw="content-[''] h-[150px] w-[80px]"></div>

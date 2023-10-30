@@ -46,6 +46,4 @@ const ModalComponent = React.memo(({ trigger, children, title, setIsOpen, isOpen
 export default ModalComponent;
 
 const Trigger = tw(Dialog.Trigger)`cursor-auto`;
-const Content = tw(
-  Dialog.Content,
-)`fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-8 text-gray-900 shadow`;
+const Content = tw(Dialog.Content)`fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-8 text-gray-900 shadow`;
