@@ -3,8 +3,10 @@ import { Background, ButtonComponent, ModalComponent, TooltipComponent } from '.
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import 'twin.macro';
+import { observer } from 'mobx-react-lite';
+import store from '../store/store';
 
-const Bookcase = () => {
+const Bookcase = observer(() => {
   const navigate = useNavigate();
   const [result, setResult] = React.useState<string[]>([]);
 
@@ -20,27 +22,34 @@ const Bookcase = () => {
   };
 
   const checkForIdentity = () => {
-    const checkArray = ['Приключения Какашки', 'Душим кошку за 15 секунд', 'Проктология для любознательных', 'Олег, Олег, скорей сюда, там с Игорем что-то случилось, он лежит и дергается',
-    'Мой дедушка был вишней', 'Девственная селедка', 'Парадокс пениса', 'Как объяснить ребенку, что вы собираетесь его продать'];
-    console.log('checkArray', checkArray)
-    console.log('result', result)
+    const checkArray = [
+      'Приключения Какашки',
+      'Душим кошку за 15 секунд',
+      'Проктология для любознательных',
+      'Олег, Олег, скорей сюда, там с Игорем что-то случилось, он лежит и дергается',
+      'Мой дедушка был вишней',
+      'Девственная селедка',
+      'Парадокс пениса',
+      'Как объяснить ребенку, что вы собираетесь его продать',
+    ];
     if (JSON.stringify(checkArray) === JSON.stringify(result)) {
-      alert('всё заебись');
+      store.addState('Дверь в библиотеке');
+      alert('Что-то щёлкнуло в двери...');
       return;
     }
-    //минус жизнь
-    alert('hui');
+    store.deleteState('Дверь в библиотеке');
+    alert('защёлкнулось(');
   };
-  
+
   return (
     <div>
       <Header />
       <Background src="https://sun9-38.userapi.com/impg/rtAf_sz3Ph0zQnKCE_hMh5Yp-3-IwEvuPaY_0A/5HcIdtHoSVI.jpg?size=1024x800&quality=96&sign=ac36afce244394d562c48147be5c0900&type=album">
         <div tw="flex flex-col items-center">
           <div tw="bg-gray-900/50 absolute top-4 left-[262px] text-xs max-h-[110px] w-[500px] overflow-y-auto rounded">
-          {result.map(item => (
+            {result.map(item => (
               <div tw="text-white">{item}</div>
-          ))}
+            ))}
           </div>
           <div tw="mt-32 flex gap-2">
             <ButtonComponent onClick={() => navigate('/library')}>Вернуться назад</ButtonComponent>
@@ -59,8 +68,8 @@ const Bookcase = () => {
               }
             >
               <div>
-                Осматривая книги вы поняли, что на некоторые из них можно нажать. И похоже, что они должны нажимться в каком-то определённом порядке.
-                Единственное, вас немного настораживает, что будет, если выбрать неправильную очерёдность...
+                Осматривая книги вы поняли, что на некоторые из них можно нажать. И похоже, что они должны нажимться в каком-то определённом
+                порядке. Единственное, вас немного настораживает, что будет, если выбрать неправильную очерёдность...
               </div>
             </ModalComponent>
           </div>
@@ -159,16 +168,16 @@ const Bookcase = () => {
               onClick={() => setFunction('лженазвание')}
             />
           </TooltipComponent>
-          <TooltipComponent content="Душим кошку за 15 секунд" delayDuration="10">
+          <TooltipComponent content={`Что делать, если тебя опустили? Как выжить "петуху" в тюрьме`} delayDuration="10">
             <div
               tw="absolute top-[557px] right-[563px] h-[80px] w-[31px] rounded bg-red-400/50 rotate-[2deg]"
-              onClick={() => setFunction('Душим кошку за 15 секунд')}
+              onClick={() => setFunction('Что делать, если тебя опустили? Как выжить "петуху" в тюрьме')}
             />
           </TooltipComponent>
         </div>
       </Background>
     </div>
   );
-};
+});
 
 export default Bookcase;

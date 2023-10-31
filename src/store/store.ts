@@ -4,6 +4,7 @@ import { makeAutoObservable } from 'mobx';
 export class Store {
   hearts = JSON.parse(localStorage.getItem('hearts') || '3');
   inventory = Array.isArray(JSON.parse(localStorage.getItem('inventory'))) ? JSON.parse(localStorage.getItem('inventory')) : [];
+  state = Array.isArray(JSON.parse(localStorage.getItem('state'))) ? JSON.parse(localStorage.getItem('state')) : [];
 
   // hearts = 3;
   constructor() {
@@ -67,6 +68,34 @@ export class Store {
     const jsonInventory = localStorage.getItem(`inventory`);
     const inventory: string[] = jsonInventory ? JSON.parse(jsonInventory) : [];
     return inventory;
+  }
+
+  getState() {
+    const jsonState = localStorage.getItem(`state`);
+    const state: string[] = jsonState ? JSON.parse(jsonState) : [];
+    return state;
+  }
+  addState(value: string) {
+    const jsonState = localStorage.getItem(`state`);
+    const state: string[] = jsonState && jsonState.length > 1 ? JSON.parse(jsonState) : [];
+    const dublicate = state.find(item => item === value);
+    if (dublicate) {
+      alert('вы уже это сделали');
+      return;
+    }
+    const body = Array.isArray(state) ? [...state, value] : [value];
+    localStorage.setItem(`state`, JSON.stringify(body));
+  }
+  deleteState(value: string) {
+    const jsonState = localStorage.getItem(`state`);
+    const state: string[] = jsonState ? JSON.parse(jsonState) : [];
+    const findItem = state.find(item => item === value);
+    if (findItem) {
+      const filteredInventory = state.filter(item => item !== value);
+      localStorage.setItem(`state`, JSON.stringify(filteredInventory));
+      return;
+    }
+    alert('такого нихуя нет');
   }
 }
 
