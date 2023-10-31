@@ -1,6 +1,6 @@
 import 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import { Painting, Library, Tavern, Home, Sculpture, Bookcase, Fireplace, Сabinet } from '../pages';
+import { Painting, Library, Tavern, Home, Sculpture, Bookcase, Fireplace, Сabinet, Safe } from '../pages';
 
 const AppRouter = () => {
   return (
@@ -15,6 +15,7 @@ const AppRouter = () => {
           <Route path="/bookcase" element={<Bookcase />} />
           <Route path="/fireplace" element={<Fireplace />} />
           <Route path="/cabinet" element={<Сabinet />} />
+          <Route path="/safe" element={<Safe />} />
         </Routes>
       </BrowserRouter>
     </div>

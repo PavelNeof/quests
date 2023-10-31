@@ -6,3 +6,4 @@ export { default as Sculpture } from './Sculpture';
 export { default as Bookcase } from './Bookcase';
 export { default as Fireplace } from './Fireplace';
 export { default as Сabinet } from './Сabinet';
+export { default as Safe } from './Safe';

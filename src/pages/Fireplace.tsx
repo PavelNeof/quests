@@ -58,7 +58,7 @@ const Fireplace = observer(() => {
 
           {isAction && (
             <TooltipComponent arrowSide="left" content="Стул переставили сюда" delayDuration="100">
-              <img src={Arrow} tw=" absolute right-[160px] top-[370px] h-32 rotate-[-30deg]" />
+              <img src={Arrow} tw="absolute right-[160px] top-[370px] h-32 rotate-[-30deg]" />
             </TooltipComponent>
           )}
           <div
@@ -66,7 +66,7 @@ const Fireplace = observer(() => {
             onDragEnd={e => onDrop(e)}
             onDrop={e => onDrop(e)}
             draggable={true}
-            tw="absolute cursor-grab top-[400px] right-[70px] h-[190px] w-[80px] bg-red-400/50 opacity-0"
+            tw="absolute top-[400px] right-[70px] h-[190px] w-[80px] bg-red-400/50 opacity-0"
           ></div>
           <div
             onDragOver={onDragOver}
